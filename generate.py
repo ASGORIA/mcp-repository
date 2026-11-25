@@ -71,13 +71,16 @@ def main() -> None:
         name = e["server"]["name"]
         version = e["server"]["version"]
         # GET /v0.1/servers/{name}/versions/latest et /versions/{version}
+        # Ces routes sont des FICHIERS sans extension (pas des dossiers) : un dossier
+        # provoque une redirection 301 vers ".../latest/" que VS Code ne suit pas
+        # pour la fiche serveur.
         # Le nom contient un "/" (envoyé en %2F dans l'URL). Selon que GitHub Pages
         # décode ou non ce caractère, c'est l'un ou l'autre dossier qui sera lu :
         # on génère les deux pour être sûr.
         for folder in (name, name.replace("/", "%2F")):
             base = OUT / "servers" / folder / "versions"
             for v in ("latest", version):
-                write_json(base / v / "index.html", e)
+                write_json(base / v, e)
 
     (ROOT / ".nojekyll").touch()
     print(f"{len(entries)} serveur(s) généré(s) dans {OUT.relative_to(ROOT)}/")

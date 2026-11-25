@@ -1,0 +1,16 @@
+[
+  {
+    "name": "com.esker/doc-tools",
+    "title": "Esker Doc Tools",
+    "description": "Outils MCP de la documentation Esker",
+    "version": "1.0.0",
+    "url": "https://mcp-esker-tools.service.doc.esker.com/ps/mcp"
+  },
+  {
+    "name": "com.esker/sca",
+    "title": "Esker SCA",
+    "description": "Serveur MCP SCA Esker",
+    "version": "1.0.0",
+    "url": "https://sca-mcp.service.doc.esker.com/ps/mcp"
+  }
+]
